@@ -125,13 +125,13 @@ public class ArenaManager implements BedWars.ArenaUtil {
         getArenas().forEach(a -> {
             if (a.getArenaGroup().equalsIgnoreCase(group)) arenaList.add(a);
         });
-        arenaList.sort(getComparator());
 
         //shuffle if determined in config
         if (config.getYml().getBoolean(ConfigPath.GENERAL_CONFIGURATION_RANDOMARENAS)){
             Collections.shuffle(arenaList);
         }
 
+        arenaList.sort(getComparator());
 
         int amount = BedWarsProxy.getParty().hasParty(p.getUniqueId()) ? BedWarsProxy.getParty().getMembers(p.getUniqueId()).size() : 1;
         for (CachedArena a : arenaList) {

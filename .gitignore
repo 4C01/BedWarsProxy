@@ -10,3 +10,4 @@ proxy.iml
 /proxy-api/bwp-api.iml
 /proxy-plugin/proxy-plugin.iml
 /*/dependency-reduced-pom.xml
+proxy-api/proxy-api.iml
