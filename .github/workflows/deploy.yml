@@ -7,9 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: https://repo.andrei1058.dev
+    environment: production
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 17.0.2
@@ -23,7 +21,7 @@ jobs:
           mvn versions:set -DnewVersion=$UPDATE_VERSION
           mvn versions:update-child-modules
           mvn clean deploy -s ci_settings.xml
-          mvn javadoc:javadoc
+          echo "UPDATE_VERSION=$UPDATE_VERSION" >> $GITHUB_ENV
       - name: Upload JAR to FTP
         uses: modern-dev/ftp-mirror@v2
         with:
