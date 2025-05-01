@@ -139,6 +139,7 @@ public class ArenaManager implements BedWars.ArenaUtil {
         if (config.getYml().getBoolean(ConfigPath.GENERAL_CONFIGURATION_RANDOMARENAS)){
             Collections.shuffle(waiting);
         }
+
         arenaList.sort(getComparator());
         arenaList.addAll(waiting);
 
