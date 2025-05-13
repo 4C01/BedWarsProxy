@@ -5,3 +5,6 @@ main: com.andrei1058.bedwars.proxy.BedWarsProxy
 author: andrei1058
 api-version: '1.13'
 softdepend: ['PlaceholderAPI', 'Spigot-Party-API-PAF', 'Parties', 'PartyAndFriends']
+permissions:
+  bw.join:
+    default: true
