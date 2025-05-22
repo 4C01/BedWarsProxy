@@ -5,6 +5,7 @@ import com.andrei1058.bedwars.proxy.api.ArenaStatus;
 import com.andrei1058.bedwars.proxy.api.CachedArena;
 import com.andrei1058.bedwars.proxy.command.SubCommand;
 import com.andrei1058.bedwars.proxy.api.Messages;
+import com.andrei1058.bedwars.proxy.language.Language;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
@@ -27,6 +28,10 @@ public class JoinCMD extends SubCommand {
     public void execute(CommandSender s, String[] args) {
         if (s instanceof ConsoleCommandSender) return;
         Player p = (Player) s;
+        if (!p.hasPermission("bw.join")) {
+            p.sendMessage(Language.getMsg(p, Messages.COMMAND_NOT_FOUND_OR_INSUFF_PERMS));
+            return;
+        }
         if (args.length < 1) {
             s.sendMessage(getMsg(p, Messages.COMMAND_JOIN_USAGE));
             return;
