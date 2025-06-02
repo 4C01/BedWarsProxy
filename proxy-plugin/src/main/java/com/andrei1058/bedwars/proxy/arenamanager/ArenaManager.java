@@ -130,7 +130,9 @@ public class ArenaManager implements BedWars.ArenaUtil {
                     waiting.add(a);
                 }
                 else{
-                    arenaList.add(a);
+                    if(a.getStatus() == ArenaStatus.STARTING || (a.getStatus() == ArenaStatus.WAITING && a.getCurrentPlayers() >= 0)) {
+                        arenaList.add(a);
+                    }
                 }
             }
         });
